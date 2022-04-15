@@ -7,7 +7,7 @@ var cron = require('node-cron');
 export let crawlItem = async (req, res) => {
 
 
-    cron.schedule('*/5 * * * * *', async () => {
+    cron.schedule('*/3 * * * * *', async () => {
     const { category } = req.params;
     console.log(`CRAWL ${category}`);
 
@@ -38,7 +38,7 @@ export let crawlItem = async (req, res) => {
         console.log('failed');
     } else {
         var page = 1;
-        var etopItemLs = [];
+        var etopItemLs:any[]  = [];
         while (page <= result.data.datas.pager.pages) {
             var getItemLink = category == "csgo" ? `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=730&page=${page}&rows=60&lang=en` : `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=570&page=${page}&rows=60&lang=en`;
             var resultGetItem = await axios.get(getItemLink, {
