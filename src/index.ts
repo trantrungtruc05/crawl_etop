@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.route("/crawl/:category").get(controller.crawl);
 
 // start cron job
-cron.schedule('*/3 * * * * *', async () => {
+cron.schedule('*/2 * * * * *', async () => {
       crawlService.crawlItem('csgo');
 });
 
