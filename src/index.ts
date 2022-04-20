@@ -16,7 +16,10 @@ app.route("/crawl/:category").get(controller.crawl);
 // start cron job
 cron.schedule('*/3 * * * * *', async () => {
       crawlService.crawlItem('csgo');
-      crawlService.crawlItem('dota');
+});
+
+cron.schedule('*/3 * * * * *', async () => {
+  crawlService.crawlItem('dota');
 });
 
 app.listen(port, async() => {
