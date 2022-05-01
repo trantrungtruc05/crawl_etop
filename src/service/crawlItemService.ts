@@ -40,9 +40,10 @@ export let crawlItem = async (category) => {
             console.log('failed');
         } else {
             var page = 1;
+            var limitPage = category == 'csgo' ? 1 : 2;
             var etopItemLs: any[] = [];
             // while (page <= result.data.datas.pager.pages) {
-            while (page <= 1) {
+            while (page <= limitPage) {
                 var getItemLink = category == "csgo" ? `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=730&page=${page}&rows=60&lang=en` : `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=570&page=${page}&rows=60&lang=en`;
                 var resultGetItem = await axios.get(getItemLink, {
                     proxy: {
