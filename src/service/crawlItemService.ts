@@ -22,7 +22,7 @@ export let crawlItem = async (category) => {
         const cookieEtopCrawlItem: ConfigInfo[] = await ConfigInfo.findAll({ where: { key: "asimovet1", type: "etop_crawl" } });
         const etopCurrency: ConfigInfo[] = await ConfigInfo.findAll({ where: { key: "etop", type: "currency" } });
 
-        var totalPageLink = category == 'csgo' ? 'https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=730&page=1&rows=60&lang=en' : 'https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=570&page=1&rows=60&lang=en';
+        var totalPageLink = category == 'csgo' ? 'https://www.etopfun.com/api/ingotitems/realitemback/list2.do?appid=730&page=1&rows=60&lang=en' : 'https://www.etopfun.com/api/ingotitems/realitemback/list2.do?appid=570&page=1&rows=60&lang=en';
 
         var result = await axios.get(totalPageLink, {
             proxy: {
@@ -44,7 +44,7 @@ export let crawlItem = async (category) => {
             var etopItemLs: any[] = [];
             // while (page <= result.data.datas.pager.pages) {
             while (page <= limitPage) {
-                var getItemLink = category == "csgo" ? `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=730&page=${page}&rows=60&lang=en` : `https://www.etopfun.com/api/ingotitems/realitemback/list.do?appid=570&page=${page}&rows=60&lang=en`;
+                var getItemLink = category == "csgo" ? `https://www.etopfun.com/api/ingotitems/realitemback/list2.do?appid=730&page=${page}&rows=60&lang=en` : `https://www.etopfun.com/api/ingotitems/realitemback/list2.do?appid=570&page=${page}&rows=60&lang=en`;
                 var resultGetItem = await axios.get(getItemLink, {
                     proxy: {
                         host: `${proxy.split(':')[0]}`,
