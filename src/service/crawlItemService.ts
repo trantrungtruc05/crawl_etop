@@ -7,10 +7,10 @@ var cron = require('node-cron');
 
 export let crawlItem = async (category) => {
 
-    let currDate = new Date();
-    console.log(`Server time today is: ${currDate}`);
-    if(((currDate.getHours() >=0 && currDate.getHours() <= 7) || (currDate.getHours() >= 19 && currDate.getHours() <=23)) ){
-    // if (true) {
+    // let currDate = new Date();
+    // console.log(`Server time today is: ${currDate}`);
+    // if(((currDate.getHours() >=0 && currDate.getHours() <= 7) || (currDate.getHours() >= 19 && currDate.getHours() <=23)) ){
+    if (true) {
         console.log(`CRAWL ${category}`);
 
         var proxyLisy = ['45.131.212.199:6248', '45.131.212.96:6145', '45.131.212.239:6288', '45.131.212.154:6203', '45.131.212.54:6103', '45.131.212.147:6196', '45.131.212.134:6183', '45.131.212.230:6279', '45.131.212.8:6057', '45.131.212.223:6272'
